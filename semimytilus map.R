@@ -5,7 +5,7 @@ library(tidyr)
 library(maps)
 library(mapdata)
 
-#Draw arrows
+#Draw arrows (for the 2nd map)
 library(shape)
 
 #Box
@@ -24,15 +24,12 @@ TEXT_FACTOR<-0.25
 TEXT_FACTOR_H<-0.16
 TEXT_FACTOR_V<-0.16
 
-#https://pdf2png.com/
-    
+#Map of Semimytilus algosus in South Africa - ocurrence records
+#Updated on 19 May 2020
+setwd("/Users/kevinckma/Desktop/")
+#pdf("semimytilus map occurence.pdf",width=6,height=4.7)
 {
-    #updated on 19 May 2020 for minor revisions
-    #PDF #don't forget the dev.off()
-    #setwd("/Users/kevinckma/Desktop/")
-    pdf("semimytilus map.pdf",width=6,height=4.7)
-    
-    #Plot
+    #Map
     par(oma=c(1.7,3,0,0)+0.1,mfrow=c(1,1),family="ArialMT")
     map("worldHires",
         xlim=c(WEST_X,EAST_X),
@@ -87,22 +84,16 @@ TEXT_FACTOR_V<-0.16
     points(17.554183-0.03,-30.814850+0.03,pch=21,cex=CEX,col="#000000",bg="#FFFFFF") #5 km n of Groenriviermond
     points(16.867159,-29.251993,pch=21,cex=CEX,col="#000000",bg="#FFFFFF") #Port Nolloth
     points(17.055940,-29.695139,pch=21,cex=CEX,col="#000000",bg="#FFFFFF") #Kleinsee
-    #points(17.27383-0.3,-30.31341,pch=21,cex=CEX,col="#484848",bg="#FFFFFF") #Hondeklipbaai
     points(17.568079,-30.835533,pch=21,cex=CEX,col="#000000",bg="#484848") #Groenriviermond
     points(17.881037,-31.299596,pch=21,cex=CEX,col="#000000",bg="#484848") #Brand-se-baai
     points(17.967418,-33.045382-0.03,pch=21,cex=CEX,col="#000000",bg="#484848") #Marcus Island
-    #points(18.23491-0.3,-31.81317,pch=21,cex=CEX,col="#484848",bg="#484848") #Doringbaai
     points(18.301891,-32.098771,pch=21,cex=CEX,col="#000000",bg="#FFFFFF") #Lambertsbaai
     points(18.016652,-32.750936,pch=21,cex=CEX,col="#000000",bg="#484848") #St. Helena Bay
-    #points(17.88643,-32.80704,pch=21,cex=CEX,col="#484848",bg="#484848") #Paternoster
-    #points(18.15079-0.3,-33.35424,pch=21,cex=CEX,col="#484848",bg="#484848") #Yzerfontein
     points(18.442226,-33.721320,pch=21,cex=CEX,col="#000000",bg="#484848") #Melkbosstrand
     points(18.350486-0.04,-33.986861+0.02,pch=21,cex=CEX,col="#000000",bg="#484848")  #Oudekraai
     points(18.345291-0.04,-34.058865-0.02,pch=21,cex=CEX,col="#000000",bg="#484848") #Hout Bay
     points(18.450939-0.025+0.05,-34.195563-0.075,pch=21,cex=CEX,col="#000000",bg="#484848") #Seaforth
-    #points(18.43353-0.3,-34.14197,pch=21,cex=CEX,col="#484848",bg="#FFFFFF") #Fish Hoek
-    
-    #points(18.831386,-34.387159,pch=21,cex=0.3,col="#000000",bg="#000000") #dot
+
     segments(18.831386,-34.387159,18.831386+0.42,-34.387159-0.91,lty=1.12,lwd=1,col="#000000") #Hangklip
     text(18.831386+0.42+0.60,-34.387159-1.08-0.05,"Hangklip",cex=CEX_TEXT,adj=0.5) #Hangklip
     
@@ -116,7 +107,6 @@ TEXT_FACTOR_V<-0.16
     text(18.463081+0.52+0.02-0.03,-33.805693+0.38,"Bloubergstrand",cex=CEX_TEXT,adj=0) #Bloubergstrand
 
     #2020 data
-    
     points(17.27383,-30.31341,pch=22,cex=CEX,col="#000000",bg="#000000") #Hondeklipbaai
     points(18.23491,-31.81317,pch=22,cex=CEX,col="#000000",bg="#000000") #Doringbaai
     points(18.330919,-32.314516,pch=22,cex=CEX,col="#000000",bg="#000000") #Elandsbaai
@@ -150,22 +140,6 @@ TEXT_FACTOR_V<-0.16
     text(23.54832-0.06,-33.98637+0.32+0.15,"Nature's Valley",cex=CEX_TEXT,adj=0.5) #Nature's Valley
     points(23.54832,-33.98637,pch=22,cex=CEX,col="#000000",bg="#FFFFFF") #Nature's Valley
 
-    #points(18.39328,-33.90837,pch=21,cex=0.3,col="#000000",bg="#000000") #dot
-    #points(18.43353-0.025,-34.14197,pch=21,cex=0.3,col="#000000",bg="#000000") #dot
-    #points(20.05056,-34.81411,pch=21,cex=0.3,col="#000000",bg="#000000") #dot
-    #points(22.21037,-34.06488,pch=21,cex=0.3,col="#000000",bg="#000000") #dot
-    
-    #text(17.27383+TEXT_FACTOR,-30.31341,"Hondeklipbaai",cex=1,adj=0)
-    #text(18.23491+TEXT_FACTOR,-31.81317,"Doringbaai",cex=1,adj=0)
-    #text(17.88643-TEXT_FACTOR_H,-32.80704+TEXT_FACTOR_V,"Paternoster",cex=1,adj=1)
-    #text(17.88526+TEXT_FACTOR,-32.94307,"Jacobsbaai",cex=1,adj=0)
-    #text(18.15079+TEXT_FACTOR,-33.35424,"Yzerfontein",cex=1,adj=0)
-    #text(18.39328+TEXT_FACTOR,-33.90837,"Three Anchor Bay",cex=1,adj=0)
-    #text(18.43353-TEXT_FACTOR-0.3,-34.14197,"Fish Hoek",cex=1,adj=1)
-    #text(19.27048-TEXT_FACTOR_H,-34.40920-TEXT_FACTOR_V,"H",cex=1,adj=1) #Hermanus
-    #text(20.05056+TEXT_FACTOR_H,-34.81411-TEXT_FACTOR_V,"C",cex=1,adj=0) #Cape Agulhas
-    
-    
     text(22.7,-31.6,"SOUTH AFRICA",cex=0.8,font=1)
     text(18.5,-28.4,"NAMIBIA",cex=0.8,font=1)
     
@@ -218,16 +192,16 @@ TEXT_FACTOR_V<-0.16
                   "36°S"),
          lwd=0.75,cex.lab=1.4,las=1,cex.axis=CEX_AXS,tck=TCK,line=0)
     box(lwd=1.4)
-    
-    dev.off()
 }
+#dev.off()
 
+#Map of Semimytilus algosus in South Africa - rate of spread - invasion history
+#This map is not included in the manuscript
+#Created on 29 March 2020
+setwd("/Users/kevinckma/Desktop/")
+#pdf("semimytilus map spread.pdf",width=6,height=4.7)
 {
-    #PDF #don't forget the dev.off()
-    setwd("/Users/kevinckma/Desktop/")
-    #pdf("semimytilus history map.pdf",width=6,height=4.7)
-    
-    #Plot
+    #Map
     par(oma=c(1.7,3,0,0)+0.1,mfrow=c(1,1),family="ArialMT")
     map("worldHires",
         xlim=c(WEST_X,EAST_X),
@@ -236,11 +210,8 @@ TEXT_FACTOR_V<-0.16
         lwd=1,
         border="gray25",fill=T,mar=c(0,0,0,0))
     
-    #text(17.27383+TEXT_FACTOR,-30.31341,"Hondeklipbaai",cex=CEX_TEXT,adj=0) #Hondeklipbaai
     text(17.27383+TEXT_FACTOR,-30.31341,"2020 (Hondeklipbaai)",cex=CEX_TEXT,adj=0) #Hondeklipbaai
-    #text(17.568079+TEXT_FACTOR,-30.835533,"Groenriviermond",cex=CEX_TEXT,adj=0) #Groenriviermond
     text(17.568079+TEXT_FACTOR,-30.835533,"2010, 2012 (Groenriviermond)",cex=CEX_TEXT,adj=0) #Groenriviermond
-    #text(18.330919+TEXT_FACTOR,-32.314516,"Elandsbaai",cex=CEX_TEXT,adj=0) #Elandsbaai
     text(18.330919+TEXT_FACTOR,-32.314516,"2009 (Elandsbaai)",cex=CEX_TEXT,adj=0) #Elandsbaai
     text(18.330919-TEXT_FACTOR,-32.314516,"First record",cex=CEX_RATE,adj=1) #Elandsbaai
     
@@ -314,31 +285,8 @@ TEXT_FACTOR_V<-0.16
     points(18.86976,-34.15993,pch=21,cex=CEX,col="#000000",bg="#000000") #Gordons Bay
     points(19.27048,-34.40920,pch=21,cex=CEX,col="#000000",bg="#000000") #Hermanus
     
-    
-    #text(17.27383+TEXT_FACTOR,-30.31341,"Hondeklipbaai",cex=1,adj=0)
-    #text(18.23491+TEXT_FACTOR,-31.81317,"Doringbaai",cex=1,adj=0)
-    #text(17.88643-TEXT_FACTOR_H,-32.80704+TEXT_FACTOR_V,"Paternoster",cex=1,adj=1)
-    #text(17.88526+TEXT_FACTOR,-32.94307,"Jacobsbaai",cex=1,adj=0)
-    #text(18.15079+TEXT_FACTOR,-33.35424,"Yzerfontein",cex=1,adj=0)
-    #text(18.39328+TEXT_FACTOR,-33.90837,"Three Anchor Bay",cex=1,adj=0)
-    #text(18.43353-TEXT_FACTOR-0.3,-34.14197,"Fish Hoek",cex=1,adj=1)
-    #text(19.27048-TEXT_FACTOR_H,-34.40920-TEXT_FACTOR_V,"H",cex=1,adj=1) #Hermanus
-    #text(20.05056+TEXT_FACTOR_H,-34.81411-TEXT_FACTOR_V,"C",cex=1,adj=0) #Cape Agulhas
-    
-    
     text(22.7,-31.6,"SOUTH AFRICA",cex=0.8,font=1)
     text(18.5,-28.4,"NAMIBIA",cex=0.8,font=1)
-    
-    #Lengend
-    
-    #points(20.67,-28.75+0.3,pch=22,cex=CEX,col="#000000",bg="#000000")
-    #points(20.67,-29.10+0.3,pch=22,cex=CEX,col="#000000",bg="#FFFFFF")
-    #points(20.67,-29.45+0.3,pch=21,cex=CEX,col="#484848",bg="#484848")
-    #points(20.67,-29.80+0.3,pch=21,cex=CEX,col="#484848",bg="#FFFFFF")
-    #text(20.67+0.35,-28.75+0.3,"Present (2020)",cex=0.8,adj=0)
-    #text(20.67+0.35,-29.10+0.3,"Not detected (2020)",cex=0.8,adj=0)
-    #text(20.67+0.35,-29.45+0.3,"Present (2009-2019)",cex=0.8,adj=0)
-    #text(20.67+0.35,-29.80+0.3,"Not detected (2009-2019)",cex=0.8,adj=0)
     
     #Scale bar
     map.scale(13.67,-35.2,relwidth=0.15,metric=T,ratio=F,
@@ -378,6 +326,5 @@ TEXT_FACTOR_V<-0.16
                   "36°S"),
          lwd=0.75,cex.lab=1.4,las=1,cex.axis=CEX_AXS,tck=TCK,line=0)
     box(lwd=1.4)
-    
-    #dev.off()
 }
+#dev.off()
