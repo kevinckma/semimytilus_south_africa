@@ -1,12 +1,6 @@
-library(dplyr)
-library(tidyr)
-
-#Make map
 library(maps)
 library(mapdata)
-
-#Draw arrows (for the 2nd map)
-library(shape)
+library(shape) #To draw arrows (for the 2nd map)
 
 #Box
 WEST_X<-(13.4)
@@ -21,8 +15,6 @@ CEX_AXS<-1.1
 CEX_TEXT<-0.9
 CEX_RATE<-0.8
 TEXT_FACTOR<-0.25
-TEXT_FACTOR_H<-0.16
-TEXT_FACTOR_V<-0.16
 
 #Map of Semimytilus algosus in South Africa - ocurrence records
 #Updated on 19 May 2020
